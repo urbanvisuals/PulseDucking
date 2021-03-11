@@ -1,6 +1,6 @@
-import subprocess
+ import subprocess
 
-def monitor(input, supervisor):
+def monitor(input, master_index, supervisor):
     zeroCount = 0
     isPlaying = None
 
@@ -22,7 +22,7 @@ def monitor(input, supervisor):
             if (newIsPlaying != isPlaying):
                 print(f"{input}: {'playing' if newIsPlaying else 'not playing'}")
                 isPlaying = newIsPlaying
-                supervisor.onPlayStateChange(newIsPlaying)
+                supervisor.onPlayStateChange(newIsPlaying, master_index)
 
     except TypeError: # TypeError: ord() expected a character, but string of length 0 found
         supervisor.onClose(input)

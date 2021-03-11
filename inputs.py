@@ -20,7 +20,7 @@ def get():
     devices = list()
 
     data = subprocess.getoutput("pacmd list-sink-inputs")
-    # print(data)
+    print(data)
 
     for line in data.splitlines()[1:]:
         if 'index' in line:

@@ -1,0 +1,1 @@
+vlc --no-video-title-show --no-osd --playlist-autostart --aout pulse --loop --open <string> 

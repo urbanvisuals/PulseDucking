@@ -1,17 +1,11 @@
 {
   "applications": [{
-      "name": "Google Chrome",
+      "name": "VLC media player (LibVLC 3.0.12)",
       "supports": [],
       "role": "master"
     },
     {
-      "displayName": "Discord",
-      "name": "WEBRTC VoiceEngine",
-      "supports": [],
-      "role": "master"
-    },
-    {
-      "name": "Spotify",
+      "name": "librespot",
       "supports": [
         "play",
         "pause"
@@ -20,7 +14,7 @@
     }
   ],
   "preferences": {
-    "duckByPercent": 50,
+    "duckByPercent": 75,
     "sourcesUpdateInterval": 5
   }
 }
