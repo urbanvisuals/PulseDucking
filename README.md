@@ -20,14 +20,10 @@ PulseDucking lowers the volume of your music (/…), whenever your voice chat (/
 _PulseAudio_ ships with a module called [**module-role-ducking**](https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Modules/#module-role-ducking). It has an important problem, though:
 The software you use has to set their _media.role_ property, so that _module-role-ducking_ can identify whether it should trigger ducking or be ducked. Some do it – others don't.
 
-[**Mumble**](https://wiki.mumble.info/wiki/Features#Attenuation) has ducking built in. They call it _Attenuation_. That's only for Mumble, though.
-
-[**Android**](https://developer.android.com/guide/topics/media-apps/audio-focus) is a good example for audio ducking. You may have noticed that while Google Maps tells you the next direction, the volume of your music is reduced. Or when you start a YouTube video, the music you were playing is paused. But you don't use Android on your PC, do you?
-
 ## How it's done
 
 - For each currently running _trigger_ application, a new thread is started.
 - In each thread, `parec --monitor-stream=<STREAM_INDEX>` is called. It streams the raw audio of an application.
 - By simply checking for `0x00`, silence/noise is detected.
-- `pacmd set-sink-input-volume <SINK_INPUT_INDEX> <VOLUME>` is dispatched for all _ducking_ applications.
+- `pacmd set-sink-input-volume <master_index> <VOLUME>` is dispatched for all _ducking_ applications.
 - A loop ensures that new applications are taken into account as well.
